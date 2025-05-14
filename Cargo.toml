@@ -1,0 +1,8 @@
+[package]
+name = "r-reactive"
+version = "0.1.0"
+edition = "2021"
+description = "An in memory reactive database for Rust"
+
+[dependencies]
+tokio = {version =  "1.45.0", features = ["full"]}

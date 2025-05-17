@@ -5,4 +5,5 @@ edition = "2021"
 description = "An in memory reactive database for Rust"
 
 [dependencies]
-tokio = {version =  "1.45.0", features = ["full"]}
+tokio = { version = "1.45.0", features = ["full"] }
+thiserror = "2.0.12"

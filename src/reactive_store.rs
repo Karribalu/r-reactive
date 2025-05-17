@@ -50,15 +50,6 @@ impl ReactiveStore {
         let data = self.data.clone();
         let tx = self.tx.clone();
         let key = key.to_string();
-
-        tokio::spawn(async move {
-            tokio::time::sleep(ttl).await;
-            let mut map = data.write().unwrap();
-            if map.remove(&key).is_some() {
-                // Notify subscribers about the removal
-                let _ = tx.send((key.clone(), StoreValue::Text("EXPIRED".to_string())));
-            }
-        });
     }
 
     pub fn subscribe(&self) -> broadcast::Receiver<(String, StoreValue)> {
